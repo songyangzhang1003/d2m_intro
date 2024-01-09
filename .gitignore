@@ -47,3 +47,13 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+#assignment 1/8
+#dedicated directory 
+localonly/
+
+#ignore specific file types -- i want my computer to ignore .jpeg files 
+*.jpeg
+
+#ignore one specific file 
+s40806-021-00309-6.pdf
