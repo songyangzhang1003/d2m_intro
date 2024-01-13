@@ -4,7 +4,7 @@ shorttitle        : "d2m"
 
 author: 
   - name          : "Songyang Zhang"
-    affiliation   : "University of Chicago"
+    affiliation   : "1"
     corresponding : yes    # Define only one corresponding author
     address       : "60637"
     email         : "songyangzhang@uchicago.edu"
@@ -12,22 +12,21 @@ author:
       - "Conceptualization"
       - "Writing - Original Draft Preparation"
       - "Writing - Review & Editing"
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"
+  - name          : "Janet Geipel"
+    affiliation   : "2"
     role:
       - "Writing - Review & Editing"
-      - "Supervision"
 
 affiliation:
   - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
+    institution   : "University of Chicago"
   - id            : "2"
-    institution   : "Konstanz Business School"
+    institution   : "University of Exeter"
 
 authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+  Department of Psychology, University of Chicago 
+  Department of Marketing, University of Exeter 
 
-  Enter author note here.
 
 abstract: |
   One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
@@ -64,8 +63,33 @@ r_refs("r-references.bib")
 ```
 
 ```{r}
+#Assignment 5
 source("d2m_intro.R")
+greeting_output <- hello_world("Dr. Dowling", TRUE)
+print(greeting_output)
 ```
+The following is the continuation of the assignment 5 
+#Introduction 
+## HPV Information 
+### Safety of HPV vaccination 
+
+Unordered list
+- HPV vaccination 
+- COVID-19 vaccination 
+- Influenza vaccination 
+
+ordered list
+1. First shot 
+2. Second shot 
+3. Third shot 
+
+**the importance of vaccination**
+*HPV vaccination only for people who are lower than 26 years old*
+
+[CDC Website](https://www.cdc.gov/std/hpv/default.htm)
+
+<!-- read website carefully HTML -->
+
 
 ```{r analysis-preferences}
 # Seed for random number generation
