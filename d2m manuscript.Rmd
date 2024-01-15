@@ -91,6 +91,7 @@ ordered list
 <!-- read website carefully HTML -->
 
 
+
 ```{r analysis-preferences}
 # Seed for random number generation
 set.seed(42)
