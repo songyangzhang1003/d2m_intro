@@ -1,6 +1,6 @@
-install.packages("tidyverse")
+#install.packages("tidyverse")
 library(tidyverse)
-install.packages("papaja")
+#install.packages("papaja")
 library(papaja)
 library(ggplot2)
 
