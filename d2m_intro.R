@@ -26,6 +26,11 @@ hello_world <- function(name, is_morning){
   }
   return(greeting)
 }
-    
   
-  
+
+#class practice on class repo, for convenience I downloaded here 
+data <- read_excel("MM Data.xlsx", sheet=1, skip=1)
+data 
+
+
+

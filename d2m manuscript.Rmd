@@ -90,6 +90,31 @@ ordered list
 
 <!-- read website carefully HTML -->
 
+```{r}
+#Assignment 6 
+#read data and data cleaning
+raw <- read.csv("HPVMaleVaccine_Data_Study1.csv")
+data <- subset(raw, Finished==1 & Duration..in.seconds. > 0 &
+                 attention_check_1==5 & honest_check==1 & age < 27)
+raw_finished <-subset(raw, Finished==1 & Duration..in.seconds. > 0 & 
+                        consent_agree ==1 & income > 0)
+raw_finished$Exclusion <- ifelse(raw_finished$Finished!=1|raw_finished$Duration..in.seconds.==0|
+                                   raw_finished$attention_check_1!=5|raw_finished$honest_check!=1|
+                                   raw_finished$age>=27,1,0)
+
+```
+
+```{r}
+#Assignment 6 continued 
+#for the intermediate dataset, we only select people who are greater than 20 years old in 2023, and then add 1 to all the participant's age because it is 2024. 
+library(dplyr)
+intermediate_data <- data %>%
+  select(age) %>%
+  filter(age > 20) %>% 
+  mutate(age_new = age + 1)
+write.csv(intermediate_data, "intermediate_data.csv")
+```
+
 
 
 ```{r analysis-preferences}
