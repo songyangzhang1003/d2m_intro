@@ -113,9 +113,20 @@ intermediate_data <- data %>%
   filter(age > 20) %>% 
   mutate(age_new = age + 1)
 write.csv(intermediate_data, "intermediate_data.csv")
+
 ```
 
+## Assginment 9 
+The data prep is completed in the first part of assignment 6. According to my previous document, the preparation of the data primarily focus on excluding the participant who does not satisfy the preliminary pre-screening criteria and the participants fail to pass the attention check. 
+For further analysis of the dataset, I will use "data" as the cleaned data for analysis. The intermediate dataset is for assignment purposes ad will not be used in further analysis. 
 
+<!--
+Assignment 10 
+imagine the image that I want to do: 
+the first plot is a bar graph representing the HPV vaccination intention for different treatment conditions, I want the graph also have SE for each condition of the HPV vaccination intention. 
+For the second graph, I also want the bar graph representing the interaction plot, showing moderation relationship between two conditions, by one possible moderator. I also want SE of vaccination intention shown on the graph. 
+In conclusion, the two graph are all bar graph, with condition on x-axis, and HPV vaccination intention on y-axis. For the second graph, the added element would be one possible moderator, showing in the graph using different colors. 
+-->
 
 ```{r analysis-preferences}
 # Seed for random number generation
