@@ -134,7 +134,26 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
+##Assignment 11
+I want to add an explanation before assignment 11. I have talked to Dr. Dowling last week about switching dataset as I have a new pilot data on the use of identity-based vs. person-based language on stigmatization attitude and prosocial behavior intention. As a result
 
+```{r}
+#Assignment 11 
+#load data 
+data1 <- read.csv("Pilot_homelessness.csv")
+#delete the first 12 rows, which is used for preview purposes
+data1 <- data1[-(1:12), ] 
+#drop duplicated prolific id 
+data1 <- data1 %>% distinct(ProlificID, .keep_all = TRUE)
+
+#boxplot by condition, use the minimal theme to clean-up the graph
+plot1 <- ggplot(data=data1, aes(x=Condition, y=as.numeric(beha1_donation_1))) + 
+  geom_boxplot() +
+  theme_minimal() +  
+  labs(x = "Condition", y = "Amount of Donation") + 
+  NULL
+plot1 
+```
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->

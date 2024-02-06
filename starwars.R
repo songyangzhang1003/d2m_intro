@@ -34,3 +34,33 @@ sw_wrangled
 ## Check that your sw.wrangled df is identical to the goal df
 # Use any returned information about mismatches to adjust your code as needed
 all.equal(sw.wrangled.goal, sw.wrangled.goal)
+
+#Assignment 11 
+library(ggplot2)
+plot1 <- ggplot(data=sw_wrangled, aes(x=height)) + 
+  geom_histogram(binwidth=10, fill="darkgrey", color="darkgrey")+ 
+  NULL 
+plot1
+
+#In creating plot2, i try to use the reorder function to make the bar plot in 
+#descending order, however it does not seem to work. In the graph below, it is 
+#not in descending order. 
+plot2 <- ggplot(data = sw_wrangled, aes(x = hair_color)) +
+  geom_bar() + 
+  NULL 
+plot2
+
+
+sw_wrangled1 <- sw_wrangled %>%
+  filter(mass < 1000)
+plot3 <- ggplot(data = sw_wrangled1, aes(x = height_in, y=mass)) +
+  geom_point(shape = 24, fill="black", size=1) + 
+  NULL 
+plot3
+
+
+
+
+
+
+
