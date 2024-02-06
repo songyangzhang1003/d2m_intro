@@ -59,8 +59,28 @@ plot3 <- ggplot(data = sw_wrangled1, aes(x = height_in, y=mass)) +
 plot3
 
 
+#Assignment 12 
+plot4 <- ggplot(sw_wrangled1, aes(x = hair_color, y = mass, fill = hair_color)) + 
+  geom_boxplot() + 
+  labs(x = "Hair color(s)", y = "Mass (kg)", title = "Distribution of Mass Across Hair Colors") +
+  NULL
+plot4
 
+#I am not sure why in this plot the na.rm function does not work in removing the NA function 
+plot5 <- ggplot(sw_wrangled, aes(x = mass, y = height_in)) + 
+  geom_point() + 
+  geom_smooth(method = lm) + 
+  facet_wrap(~brown_hair, na.rm = TRUE, labeller = labeller(brown_hair = c(`TRUE` = "Has brown hair", `FALSE` = "No brown hair"))) + 
+  labs(x = "Mass", y = "Height in") +
+  NULL
+plot5
 
-
-
-
+#I am not sure as well why within this function na.rm does not work... 
+#should I clean the dataset before the plot, or there is something that I can do 
+#within ggplot to remove missing value? 
+plot6 <- ggplot(sw_wrangled, aes(x = substr(first_name, 1, 1), fill = gender, na.rm=TRUE)) + 
+  geom_bar() + 
+  coord_flip() + 
+  labs(x = "Species first letter", y = "Count") +
+  NULL
+plot6

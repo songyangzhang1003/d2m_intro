@@ -147,10 +147,12 @@ data1 <- data1[-(1:12), ]
 data1 <- data1 %>% distinct(ProlificID, .keep_all = TRUE)
 
 #boxplot by condition, use the minimal theme to clean-up the graph
+#For Assignment 12, I try to tune up this plot
 plot1 <- ggplot(data=data1, aes(x=Condition, y=as.numeric(beha1_donation_1))) + 
   geom_boxplot() +
+  geom_jitter(width = 0.2, alpha = 0.5, size = 2) +  
   theme_minimal() +  
-  labs(x = "Condition", y = "Amount of Donation") + 
+  labs(x = "Condition", y = "Amount of Donation", title="Donation by Language-framing") + 
   NULL
 plot1 
 ```
