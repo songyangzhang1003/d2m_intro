@@ -84,3 +84,33 @@ plot6 <- ggplot(sw_wrangled, aes(x = substr(first_name, 1, 1), fill = gender, na
   labs(x = "Species first letter", y = "Count") +
   NULL
 plot6
+
+##Assignment 13 - recreate advanced plot 
+head(sw_wrangled)
+library(ggsci)
+plot7 <- ggplot(data = sw_wrangled, aes(x = height, y = mass, color = gender)) + 
+  geom_point() + 
+  geom_smooth(method = "lm", se = FALSE, aes(fill = gender)) + 
+  facet_wrap(~gender, scales = "free_y") + 
+  theme_minimal() +
+  labs(
+    title = "Height and weight across gender presentation",
+    subtitle = "A cautionary tale in misleading 'free' axis scales & bad design choices",
+    x = "Height (cm)",
+    y = "Mass (kg)") +
+  #I am not sure why in this line the text does not change to female and male, instead
+  #it only shows "f" and "m" and "BA
+  scale_color_manual(values = c("f" = "red", "m" = "grey", "Other" = "orange")) +
+  scale_fill_manual(values = c("f" = "red", "m" = "grey", "Other" = "orange")) +
+  theme(
+    legend.title = element_text(family = "sans", size = 10),
+    legend.position = "bottom",
+    strip.background = element_rect(fill = "green"),
+    strip.text = element_text(family = "sans", size = 12, face = "bold")
+  ) +
+  #using ggci element here does not correspond to the targeted plot, but I added
+  #my non-used code here. (btw i like the color)
+  #scale_color_npg() + 
+  #scale_fill_npg() +
+  guides(fill = guide_legend(title = "Gender Presentation"), color = guide_legend(title = "Gender Presentation"))
+plot7

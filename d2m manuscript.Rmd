@@ -155,6 +155,18 @@ plot1 <- ggplot(data=data1, aes(x=Condition, y=as.numeric(beha1_donation_1))) +
   labs(x = "Condition", y = "Amount of Donation", title="Donation by Language-framing") + 
   NULL
 plot1 
+
+#for assignment 13, I added another mean plot and tune up the plot
+mean_donations <- data1 %>%
+  mutate(beha1_donation_1 = as.numeric(beha1_donation_1)) %>% 
+  group_by(Condition) %>%
+  summarise(mean_donation = mean(beha1_donation_1, na.rm = TRUE))
+plot1_bar <- ggplot(data = mean_donations, aes(x = Condition, y = mean_donation)) +
+  geom_bar(stat = "identity", position = "dodge", fill="grey") +
+  theme_minimal() +
+  labs(x = "Condition", y = "Mean Donation Amount", title="Mean Donation Amount by Condition") + 
+  NULL
+plot1_bar
 ```
 
 # Methods
