@@ -137,7 +137,7 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ##Assignment 11
 I want to add an explanation before assignment 11. I have talked to Dr. Dowling last week about switching dataset as I have a new pilot data on the use of identity-based vs. person-based language on stigmatization attitude and prosocial behavior intention. As a result
 
-```{r}
+```{r figure1}
 #Assignment 11 
 #load data 
 data1 <- read.csv("Pilot_homelessness.csv")
@@ -155,7 +155,9 @@ plot1 <- ggplot(data=data1, aes(x=Condition, y=as.numeric(beha1_donation_1))) +
   labs(x = "Condition", y = "Amount of Donation", title="Donation by Language-framing") + 
   NULL
 plot1 
+```
 
+```{r figure2}
 #for assignment 13, I added another mean plot and tune up the plot
 mean_donations <- data1 %>%
   mutate(beha1_donation_1 = as.numeric(beha1_donation_1)) %>% 
@@ -168,6 +170,19 @@ plot1_bar <- ggplot(data = mean_donations, aes(x = Condition, y = mean_donation)
   NULL
 plot1_bar
 ```
+```{r my-table}
+#Assignment 14 
+library(knitr)
+library(kableExtra)
+kable(data1, 
+      caption = "My table caption.") %>% 
+  kable_styling(font_size = 12) %>%
+  column_spec(1, bold = TRUE, color = "blue") 
+```
+
+#reference the table 
+For a brief view of the table, please see shown in Table \@ref(my-table)
+Figure \@ref(figure1) shows box plot of donation behavior, and Figure \@ref(figure2) shows mean donation by condition. 
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
