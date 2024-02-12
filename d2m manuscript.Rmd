@@ -184,6 +184,19 @@ kable(data1,
 For a brief view of the table, please see shown in Table \@ref(my-table)
 Figure \@ref(figure1) shows box plot of donation behavior, and Figure \@ref(figure2) shows mean donation by condition. 
 
+
+```{r}
+#Assignment 15 
+#descriptive analysis of the data 
+summary(as.numeric(data1$age))
+table(data1$ethnicity)
+table(data1$education)
+table(data1$income)
+#hypothesis testing 
+aov1 <- aov(beha1_donation_1 ~ Condition, data = data1)
+summary(aov1)
+```
+
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
 
