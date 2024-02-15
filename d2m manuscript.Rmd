@@ -192,9 +192,18 @@ summary(as.numeric(data1$age))
 table(data1$ethnicity)
 table(data1$education)
 table(data1$income)
+
+#assignment 16 add descriptive anlaysis 
+table(data1$beha2_support)
+summary(as.numeric(data1$beha1_donation_1))
+
 #hypothesis testing 
 aov1 <- aov(beha1_donation_1 ~ Condition, data = data1)
 summary(aov1)
+
+#added regression analysis 
+model1 <- lm(beha1_donation_1 ~ Condition, data = data1)
+summary(model1)
 ```
 
 # Methods
