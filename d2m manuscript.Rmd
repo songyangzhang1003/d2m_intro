@@ -207,7 +207,8 @@ summary(model1)
 ```
 
 # Methods
-We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
+The mean age of the participants are `r mean(as.numeric(data1$age))`. In addition, the distribution of participants by ethnicity is detailed in the following table: `r table(data1$ethnicity)`, in which we can see that most participants are white. 
+The mean value of donation amount when participants win 100 dollars lottery are `r mean(as.numeric(data1$beha1_donation_1))`. And on average,`r (mean(as.numeric(data1$beha2_support)))*100` percent of participants support the housing-for-all program petition. The ANOVA test comparing donation intention across conditions shows that  the donation intention are not significantly different across groups, with p value equals to `r summary(aov1)[["Pr(>F)"]][1]`. 
 
 ## Participants
 
