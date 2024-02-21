@@ -210,6 +210,11 @@ summary(model1)
 The mean age of the participants are `r mean(as.numeric(data1$age))`. In addition, the distribution of participants by ethnicity is detailed in the following table: `r table(data1$ethnicity)`, in which we can see that most participants are white. 
 The mean value of donation amount when participants win 100 dollars lottery are `r mean(as.numeric(data1$beha1_donation_1))`. And on average,`r (mean(as.numeric(data1$beha2_support)))*100` percent of participants support the housing-for-all program petition. The ANOVA test comparing donation intention across conditions shows that  the donation intention are not significantly different across groups, with p value equals to `r summary(aov1)[["Pr(>F)"]][1]`. 
 
+
+## Assignment 19 
+
+The use of identity-based and person-based language has been widely debated in mental health domain [@jorm_mental_1997] [@noauthor_person-first_2022]. Several author also publically advocate for identity based language use [@noauthor_identity-first_2012]. In the systematic review by [@murphy_systematic_2022], it shows the potential language effect on help seeking behavior. There are also empirical evidence showing the impact of language intervention on behavior [@thornicroft_evidence_2016]
+(to explain, here no author means the information is directly used from certain website, which zotero export as no author.)
 ## Participants
 
 ## Material

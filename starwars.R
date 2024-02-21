@@ -13,8 +13,6 @@ sw.wrangled.goal
 # Look closely at factors (you may need another function to do so) to see their levels
 str(sw.wrangled.goal) 
 
-
-
 ## Use the built-in starwars dataset to replicate the tibble above in a tbl called sw.wrangled
 # If you get stuck, use comments to "hold space" for where you know code needs to go to achieve a goal you're not sure how to execute
 ####assignment 8
