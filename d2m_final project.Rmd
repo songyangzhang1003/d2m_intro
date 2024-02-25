@@ -1,0 +1,132 @@
+---
+title             : "The Influence of Person-based vs. Identity-based language on Attitude and Prosocial Behavior"
+shorttitle        : "Influence of Language on Prosocial Behavior"
+
+author: 
+  - name          : "Songyang Zhang"
+    affiliation   : "1"
+    corresponding : no    # Define only one corresponding author
+    address       : "Chicago, IL, 60637"
+    email         : "songyangzhang@uchicago.edu"
+    role: # Contributorship roles (e.g., CRediT, https://credit.niso.org/)
+      - "Conceptualization"
+      - "Writing - Original Draft Preparation"
+      - "Writing - Review & Editing"
+  - name          : "Janet Geipel"
+    affiliation   : "1,2"
+    role:
+      - "Writing - Review & Editing"
+      - "Supervision"
+
+affiliation:
+  - id            : "1"
+    institution   : "University of Chicago"
+  - id            : "2"
+    institution   : "University of Exeter"
+
+
+abstract: |
+  This study examines the influence of language framing on prosocial behavior towards the homeless. It contrasts the effects of identity-based language ("homeless people", "unhoused people") with person-based language ("people who experience homelessness") on donation intentions and attitudes. Conducted with 32 U.S. English speakers, the experiment employed a between-subjects design, where participants were exposed to varied language framing in a news article context. Measures included hypothetical donation amounts to homelessness support, attitudes towards homeless individuals, and support for relevant government policies. These insights are vital for policymakers and advocates in promoting inclusive discourse and support for marginalized populations.
+  
+  <!-- https://tinyurl.com/ybremelq -->
+  
+keywords          : "prosocial behavior"
+wordcount         : "97"
+
+bibliography      : "r-references.bib"
+
+floatsintext      : no
+linenumbers       : yes
+draft             : no
+mask              : no
+
+figurelist        : no
+tablelist         : no
+footnotelist      : no
+
+classoption       : "man"
+output            : papaja::apa6_pdf
+---
+
+```{r setup, include = FALSE}
+library("papaja")
+r_refs("r-references.bib")
+```
+
+```{r analysis-preferences}
+# Seed for random number generation
+set.seed(42)
+knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
+```
+
+# Introduction
+Language framing can profoundly influence people’s perceptions, attitudes, and behaviors. The concept of framing, as posited by Tversky and Kahneman, illustrates how different presentations of equivalent information can lead to diverse outcomes in decision-making processes [@tversky_framing_1981]. This principle extends into the realm of prosocial behavior, where language framing of social issues can significantly affect individuals' decisions and willingness to engage in prosocial behavior towards others. Studies in social psychology and behavioral science have consistently demonstrated that shifts in language framing can alter prosocial intentions and actions [@ceylan_message_2021] [@granello_power_2016]. 
+
+In the current study, we focused on the effect of identity-based framing and person-based framing, analyze how such factor influence people’s attitude to marginalized group and their prosocial behavior. To be specific, identity-based language focused on one’s identity (eg. disabled people, homeless people, etc.), whereas person-based language put the person at the center of language expression (eg. people who experience homelessness, people who have mental illness). By examining the effects of using identity-based language against person-based language, the study seeks to reveal how subtle shifts in language framing can impact empathy, reduce stigma, and influence the willingness to support social causes.
+
+The discourse around identity vs. person based language framing occurred among various domains, including disability, mental health, and autism, where the preference and criteria for using different language framing are still vastly debated. The American Psychological Association (APA) and other authoritative bodies like the American Medical Association (AMA) and the National Institute of Health (NIH) have traditionally advocated for the use of person-based language to describe individuals with disabilities or conditions, aiming to emphasize the personhood over the their physical and/or mental condition [@cdc_cdcs_2022], [@nih_person-first_2022], [@dunn_person-first_2015]. However, within the disability and autism communities, there's a growing debate between the preference for identity-based language by people within the marginalized community and advocation for person-based language by medical professionals [@buijsman_autistic_2023], [@taboas_preferences_2023]. 
+
+Despite the ongoing discourse around use of person-based vs. identity-based language, there has been a gap in empirical research, in which less research has focused on the effect of language on people’s perception and prosocial behavior outcomes. Furthermore, much of the existing literature has focused on specific areas like disability or mental health, without exploring the broader implications of these findings for other social issues, including homelessness. Thus, the current research focused specifically within the context of homelessness, analyzing the effect of identity-based and person-based language on people’s general attitude and prosocial donation behavior. 
+
+The current research offers a more comprehensive understanding in language-framing and prosocial behavior within the context of homelessness. Through the experimental manipulation of language framing, we are able to gain insight to the causal consequence of language framing and subsequently measuring its impact on participants' donation intentions. This research also provides a more integrated theoretical framework for understanding the role of language in social issues. It can provide practical guidance for policymakers in crafting more effective information to gain support for marginalized populations, thereby supporting more inclusive public discourse.
+
+
+# Methods
+
+## Study Design 
+The current study used between-subjects design, where participants were randomly assigned to one of three language framing conditions: identity-based language ("homeless people"), identity-based language ("unhoused people"), and person-based language ("people who experience homelessness"). The primary dependent variable was the participants' willingness to engage in prosocial behavior (how much are they likely to donate their money out of 100 dollars to support the targeted population if they win lottery)
+
+```{r include = FALSE}
+library(dplyr)
+#load data 
+data1 <- read.csv("Pilot_homelessness.csv")
+#delete the first 12 rows, which is used for preview purposes
+data1 <- data1[-(1:12), ] 
+#drop duplicated prolific id 
+data1 <- data1 %>% distinct(ProlificID, .keep_all = TRUE)
+mean_age = mean(as.numeric(data1$age))
+```
+
+## Participants 
+We recruited 33 native English speakers from the U.S. on Prolific (age range: 18 to 67, Mage = `r mean(as.numeric(data1$age))` years, *SD* = 13; 52% male, 48% female). Participants received 9 pounds/hour. On average they needed 7 minutes to complete the study. Participants were randomly assigned to one of three labelling groups: unhoused people (*n* = 10), homeless people (*n* = 12), people who experience homelessness (*n* = 11). We excluded one participant as they had a duplicated IP address and Prolific ID. The final sample consists of 32 participants. 
+
+## Procedure
+After providing informed consent, participants read a news article about an organization aiming to find affordable housing for people who experience homelessness. Within the news article, we varied the language-framing that is referring to people who experience homelessness/unhoused people/homeless people. Participants were informed that the study aims to understand how informative online news articles are.
+
+## Measures 
+### Recognition Measure 
+The participants were first asked to answer three recognition check for the online news article. The three multiple choice question asked: “who is Dan Valdez?”, “what is the main goal of Brilliant Corners”, and “what is a major issue in Los Angeles mentioned in the article?”. The recognition measure were developed based on the content of the news article, and the answers were obvious if the participants carefully read the article. 
+
+### Article Perception Measure 
+The participants were asked to report their perception of the online news article in five dimensions (informative, understandable, interesting, read in detail, concentration), in which the five item survey was measured through 7-point Likert scale (0 = *Not at all*, 6 = *Very*). 
+
+### Donation Intention 
+Participants were presented with a hypothetical scenario where they could win 100 dollar in a study lottery and were asked how much they would like to donate to support the homeless population, with options ranging from 0 dollar to 100 dollars. 
+
+### Attitude Measure 
+Participants reported their thoughts and feelings about the homeless population through several statements related to mental and material resources, dishonesty, and other dimensions. Responses were captured on a 7-point Likert scale from 1 (*strongly disagree*) to 7  (*strongly agree*). The attitude measure is adapted from measures of stigmatization scale [@newman_general_2022].
+
+### Tax Support for Housing Program 
+Participants were asked about their willingness to pay extra taxes for a "Housing-for-all" program from 0 (*Very unlikely*) to 6 (*Very likely*) and their general support for such a program, indicated by binary measure of yes or no. 
+
+### Government Support and Policy Measures 
+Questions in this section explored the perceived priority of government support for homeless individuals and willingness to sign a petition for initiatives to help the homeless population. Responses varied from 0 (*very low priority*) to 6 (*very high priority*) for budget priorities and 0 to 100 for petition signing willingness.
+
+### Demographics 
+Participants provided information on age, ethnicity, education level, employment status, and annual household income.
+
+## Data analysis
+We used `r cite_r("r-references.bib")` for all our analyses.
+
+
+# Results
+
+# Discussion
+
+
+\newpage
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::
