@@ -1,0 +1,19 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+\centering
+\caption{\label{tab:my-table}Summary of Demographic Variables by Condition}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\begin{tabular}[t]{l|r|r|r|r|r}
+\hline
+Condition & Avg\_Age & Avg\_Political\_Economy\_Issue & Avg\_Political\_Social\_Issue & Avg\_Education\_Level & Avg\_Employment\_Status\\
+\hline
+homeless people & 37.16667 & 3.583333 & 3.583333 & 2.833333 & 2.083333\\
+\hline
+people who experience homelessness & 47.72727 & 3.454546 & 3.363636 & 3.181818 & 1.818182\\
+\hline
+unhoused people & 44.88889 & 3.777778 & 3.333333 & 4.000000 & 2.222222\\
+\hline
+\end{tabular}}
+\end{table*}

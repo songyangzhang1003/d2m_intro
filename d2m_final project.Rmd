@@ -79,16 +79,16 @@ The current study used between-subjects design, where participants were randomly
 ```{r include = FALSE}
 library(dplyr)
 #load data 
-data1 <- read.csv("Pilot_homelessness.csv")
+data_final <- read.csv("Pilot_homelessness.csv")
 #delete the first 12 rows, which is used for preview purposes
-data1 <- data1[-(1:12), ] 
+data_final <- data_final[-(1:12), ] 
 #drop duplicated prolific id 
-data1 <- data1 %>% distinct(ProlificID, .keep_all = TRUE)
-mean_age = mean(as.numeric(data1$age))
+data_final <- data_final %>% distinct(ProlificID, .keep_all = TRUE)
+mean_age = mean(as.numeric(data_final$age))
 ```
 
 ## Participants 
-We recruited 33 native English speakers from the U.S. on Prolific (age range: 18 to 67, Mage = `r mean(as.numeric(data1$age))` years, *SD* = 13; 52% male, 48% female). Participants received 9 pounds/hour. On average they needed 7 minutes to complete the study. Participants were randomly assigned to one of three labelling groups: unhoused people (*n* = 10), homeless people (*n* = 12), people who experience homelessness (*n* = 11). We excluded one participant as they had a duplicated IP address and Prolific ID. The final sample consists of 32 participants. 
+We recruited 33 native English speakers from the U.S. on Prolific (age range: 18 to 67, Mage = `r mean(as.numeric(data_final$age))` years, *SD* = 13; 52% male, 48% female). Participants received 9 pounds/hour. On average they needed 7 minutes to complete the study. Participants were randomly assigned to one of three labelling groups: unhoused people (*n* = 10), homeless people (*n* = 12), people who experience homelessness (*n* = 11). We excluded one participant as they had a duplicated IP address and Prolific ID. The final sample consists of 32 participants. 
 
 ## Procedure
 After providing informed consent, participants read a news article about an organization aiming to find affordable housing for people who experience homelessness. Within the news article, we varied the language-framing that is referring to people who experience homelessness/unhoused people/homeless people. Participants were informed that the study aims to understand how informative online news articles are.
@@ -120,8 +120,110 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 
 # Results
+## Participants Demographics 
+We recruited 33 native English speakers from the U.S. on Prolific (age range: 18 to
+67, Mage = 44 years, SD = 13; 52% male, 48% female). Participants received 9
+pounds/hour. On average they needed 7 minutes to complete the study. Participants
+were randomly assigned to one of three labelling groups: unhoused people (n = 10),
+homeless people (n = 12), people who experience homelessness (n = 11). We
+excluded one participant as they had a duplicated IP address and Prolific ID. The final
+sample consists of 32 participants. In terms of education, 28.1% of participants
+indicated to have a high school degree, 28.1% associate’s degree, 31.3% a bachelor’s
+degree, and 12.5% a master’s degree. In terms of employment status, 56.3% of
+participants indicated to have a full-time employment status, 18.8% a part-time, 15.6%
+unemployed, 9.4% not employed. In terms of ethnicity, 72% of participants indicated
+to be white, 22% to be black or African American, and 6% Hispanic.
+
+For a detailed account for the demographics of participants by each condition, see table included in the supplementary material. 
+
+```{r my-table, echo=FALSE}
+library(knitr)
+library(dplyr)
+
+#select my demographic variables
+demographic_data <- data_final %>%
+  select(Condition, age, poli_econ_1, poli_social_1, education, employment)
+
+# Summarize the demographic data
+demographic_summary <- demographic_data %>%
+  group_by(Condition) %>%
+  summarise(
+    Avg_Age = mean(as.numeric(age), na.rm = TRUE),
+    Avg_Political_Economy_Issue = mean(as.numeric(poli_econ_1), na.rm = TRUE),
+    Avg_Political_Social_Issue = mean(as.numeric(poli_social_1), na.rm = TRUE),
+    Avg_Education_Level = mean(as.numeric(education), na.rm = TRUE),
+    Avg_Employment_Status = mean(as.numeric(employment), na.rm = TRUE),
+  )
+
+library(kableExtra)
+
+table1 <- kable(demographic_summary, caption = "Summary of Demographic Variables by Condition") %>%
+  kable_styling(latex_options = "scale_down")
+table1
+
+
+```
+
+<!-- For the summary statistics of recognition measure and article perception meausre, I don't have the Rcode here because I conducted the analysis seperately using SPSS, mainly because my mentor use SPSS for analysis. -->
+
+## Recognition Measure 
+30 out of 32 participants (93.8%) passed the first recognition test (“Who is Dan Valdez?” [a] A landlord in Los Angeles, [b] An advocate for luxury housing, [c] A team member at Brilliant Corners, [d] The mayor of Los Angeles.). All 32 participants (100%) passed the second (“What is the main goal of Brilliant Corners?” [a] Building new apartments, [b] Finding homes for unhoused people [people who are homeless, homeless people], [c] Providing job training, [d] Offering medical assistance) and all participants (100%) passed the third recognition test (“What is a major issue in Los Angeles mentioned in the article?” [a] Lack of public transportation, [b] Shortage of affordable housing, [c] High crime rates, [d] Pollution).
+
+## Article Perception Measure 
+On average, participants perceived the article as informative ($M$ = 4.84, $SD$ = 1.27, scale: 1 = *not at all informative* to 6 = *very informative*), understandable ($M$ = 5.47, $SD$ = 0.67, scale: 1 = *not at all understandable* to 6 = *very understandable*), and as interesting ($M$ = 4.25, $SD$ = 1.52, scale: 1 = *not at all interesting* to 6 = *very interesting*). On average, participants indicated that they read the article well and in detail ($M$ = 5.44, $SD$ = 0.98, scale: 1 = *not at all well* to 6 = *very well and in detail*) and that it was not difficult to read the news article ($M$ = 1.75, $SD$ = 1.97, scale: 0 = *not at all difficult* to 6 = *very difficult*). 
+
+## Donation Intention 
+```{r, include = FALSE}
+aov1 <- aov(beha1_donation_1 ~ Condition, data = data_final)
+summary_aov1 <- summary(aov1)
+f_value <- summary_aov1[[1]]$`F value`[1]
+p_value <- summary_aov1[[1]]$`Pr(>F)`[1]
+mean_sq_condition <- summary_aov1[[1]]$`Mean Sq`[1]
+mean_sq_error <- summary_aov1[[1]]$`Mean Sq`[2]
+```
+
+The main dependent variable that we are interested in here is the donation intention, in which we asked the participants to report their intention to donate to support homeless people, unhoused people, or people who experience homeless, out of 100 dollar. A one-way ANOVA was conducted to examine the impact of language framing on participants' intention to donate intention. The analysis revealed that language framing did not significantly affect donation intentions, $F$(2, 29) = `r round(f_value, 2)`, $p$ = `r round(p_value, 3)`, with a mean square between groups (Condition) of `r round(mean_sq_condition, 2)` and a mean square within groups (error) of `r round(mean_sq_error, 2)`.
+
+The graph below shows the donation intention by condition. 
+```{r, echo = FALSE}
+library(ggplot2)
+plot1 <- ggplot(data=data_final, aes(x=Condition, y=as.numeric(beha1_donation_1))) + 
+  geom_boxplot() +
+  geom_jitter(width = 0.2, alpha = 0.5, size = 2) +  
+  theme_minimal() +  
+  labs(x = "Condition", y = "Amount of Donation", title="Donation by Language-framing") + 
+  NULL
+plot1 
+```
+
+## Support for Housing for All Program 
+Then, we are interested in the whether the secondary outcome measure, support for housing for all program (scale: 0 = *Not at all*, 6 = *Very much*), differ across different language framing conditions. A one-way anova was conducted, revealing that the effect of language framing on support for housing-for-all program is no statistically significant ($F$(2, 29) = 0.941, $p$ = .402). The bar graph below shows the mean of support for housing-for-all program across conditions. 
+
+```{r, include = FALSE}
+aov2 <- aov(beha2_support ~ Condition, data = data_final)
+summary(aov2)
+```
+
+```{r, echo = FALSE}
+mean_support <- data_final %>%
+  mutate(beha2_support = as.numeric(beha2_support)) %>% 
+  group_by(Condition) %>%
+  summarise(mean_support = mean(beha2_support, na.rm = TRUE))
+plot2 <- ggplot(data = mean_support, aes(x = Condition, y = mean_support)) +
+  geom_bar(stat = "identity", position = "dodge", fill="grey") +
+  theme_minimal() +
+  labs(x = "Condition", y = "Mean Support", title="Mean Support by Condition") + 
+  NULL
+plot2
+
+```
 
 # Discussion
+The current study examine the influence of language framing on prosocial behaviors, specifically donation intentions, and support for housing initiatives. The findings from the one-way ANOVA analyses suggest language framing does not significantly impact donation intentions or support for a "housing for all" program. 
+
+One possible explanation for the non-significant result is the small sample size. In the current pilot study, there are only 32 participants, meaning approximately 10 participants within each condition. As a result, with the small sample size in the study, we might not detect any significant differences in donation amount. For future study, we will include more participants to see if there is a significant differences among language-framing conditions.
+
+The current study design contributes to the ongoing discourse on the influence of language-framing on prosocial intention and behavior. Future studies could explore more diverse language frames with larger sample size to have enough effect size to detect significance result. The person-based and identity-based framing is also being used in different context beyond homelessness. Possible future research can analyze the influence of language-framing to different marginalized group. 
 
 
 \newpage
