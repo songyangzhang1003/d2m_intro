@@ -1,0 +1,238 @@
+---
+title: "final-evaluation-songyang"
+output: html_document
+date: "2024-03-07"
+---
+
+
+# Assignment Info
+
+- **Student name:** Songyang Zhang
+- **Project title:** The Influence of Person-based vs. Identity-based language on Attitude and Prosocial Behavior
+- **Submission date:** Feb 28 at 10:43pm 
+
+## Report plan summary
+
+The specific plans for you analysis, figure, and table chunks
+The analysis is going to include descriptive analysis of demographics as well as ANOVA testing that compares donation means. The two figures will include a box plot that comparing the donation means across conditions and a bar plot of proportion of people who choose to support the “housing-for-all” program for each condition. The table chunks are going to include demographic factors. 
+A general description for how you will distribute the 1500+ words across 4 sections
+Because the current study is a pilot study (in which for future dataset, we will conduct study with more participants), the primary focus of the paper would be on the introduction and method section, in which I am dedicating with 500 words for each section. For the result and discussion, I will attribute around 500 words. 
+At least 2 elements of code produced in code chunks that you can referent in text (e.g., a p-value from the model you run in your analysis chunk, a value within the table you created in the table chunk, a summary value like mean or median that you calculated and stored as a variable)
+I will reference the mean age in the text as well as the p-value for the ANOVA analysis. 
+2-4 sentences explaining your personal goals for the final report. What do you want to have accomplished or learned by the time you submit your report at the end of the quarter? 
+For the report, I hope to have a clearer picture of the introduction and method section, because these two sections would be helpful for me in future formal study in addition to the pilot, providing a firm theoretical background. I also hope to write-up the result section, even if the current data might be inconclusive to generate any significant result, however, I hope the structure would be helpful for my future manuscript write-up. 
+
+# Assessment
+
+The lists of expectations in each category are to help you understand the kinds of things I'm looking for as I grade. These **do not** map onto point values. A checked box indicates the expectation was met or exceeded. (This also helps me spot patterns across students to identify ways I can improve the syllabus and lectures for future students.)
+
+Ratings indicate overall success for each category and loosely map onto points. Starting from 20 points, no points are lost for the highest rating, -3 for the lowest, and somewhere in between for the middle ratings. Points lost in that range are dependent on how many issues there are, how much they matter, whether it's technicality vs problem of consequence, whether it's the same core issue that lost you points in a different section, whether exceeding expectations elsewhere compensate for a small issue, whether it's something we talked about in your report plan meeting, etc. 
+
+Additional comments are included below the ratings as needed. Final project and class grades are included at the end of the document.
+
+**WARNING: Grades for this assignment are going to be lower than you expect!** Don't freak out. I use "specs-based grading", which works very differently from the letter-grade-to-percentage conversion you are probably used to. It's more like Harry Potter OWLs -- 19/20 is outstanding, 16-18 exceeds expectations (not a C!), 13-15 meets expectations (not an F!), etc. You're not down to T(roll) until you're in the negatives. Remember this is only 20% of your final grade!
+
+## .Rmd/PDF match
+
+**Expectations:**
+
+- [ ] PDF submitted to Canvas is identical to the PDF created when I knit your .Rmd
+- [x] Knitting does not produce any errors or problematic warnings
+
+**Rating:**
+
+- [ ] Perfect match
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive error(s), missing PDF, or significant problems
+
+Major differences in the methods section. Seems to just be an older draft and not caused by problems with your code or markdown.
+
+## Data read-in, prep, wrangling
+
+**Expectations:**
+
+- [ ] Data preparation and wrangling code present (may separate files)
+- [x] Intermediate datasets (if used) are functional and read in successfully
+- [x] Raw or intermediate data read into .Rmd code chunk
+- [ ] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [ ] At least one minor problem
+- [x] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+I see your Data-prep.R file (which is nicely commented!), but this does not seem to be where you build the dataframe (or intermediate csv) that you read in and use in your .Rmd.
+
+## Figures, tables, analyses
+
+### Figures
+
+**Expectations:**
+
+- [x] At least 2 plots are produced in .Rmd chunks (not imported images)
+- [x] Figures are different kinds of plots 
+- [x] Figures follow report plan (may have inconsequential deviations)
+- [ ] Figures are publication-quality
+- [ ] Figures are sensibly captioned with `fig.cap` chunk option
+- [x] Figures are informative and interpretable
+- [ ] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [ ] At least one minor problem
+- [x] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Relevel/refactor so that all text on figures is in publication-ready format, including capitalization & punctuation of axis labels, ticks, and legends.
+
+### Table
+
+**Expectations:** 
+
+If you included more than the one required table, only one needs to meet expectations.
+
+- [x] At least 1 table is produced in .Rmd chunk
+- [x] Table follows report plan (may have inconsequential deviations)
+- [ ] Table is publication-quality
+- [x] Table is sensibly captioned within the function (e.g., the kable caption argument)
+- [x] Table is informative and interpretable
+- [x] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Not APA-publication-ready. Correct formatting of column names and values in the condition column. Round values to 3 digits.
+
+### Analysis
+
+**Expectations:**
+
+If you included more than the one required analysis (or other requirements agreed on in the report plan), only one needs to meet expectations.
+
+- [x] At least 1 statistical analysis is executed in .Rmd chunk (or sourced code if appropriate)
+- [x] Analysis follows report plan (may have inconsequential deviations)
+- [x] Analysis is executed correctly
+- [x] Analysis is appropriate (not necessarily ideal) for data type(s) and research questions
+- [x] Analysis is referenced and interpreted in narrative text
+- [ ] All code in .R files and .Rmd code chunks is sufficiently commented and comprehensible
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [x] No noteworthy issues 
+- [ ] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+*No additional comments*
+
+## Manuscript
+
+### Narrative text
+
+**Expectations:**
+
+- [x] Narrative text includes 1500+ words distributed across 4 sections
+- [x] Sufficient literature review (per report plan)
+- [x] Sufficient methods section (per report plan)
+- [x] Sufficient results section (per report plan)
+- [x] Sufficient discussion (per report plan)
+- [x] Narrative provides sufficient context and interpretation for all figures, tables, and analyses
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [x] No noteworthy issues 
+- [ ] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+*No additional comments*
+
+### Markdown
+
+**Expectations:**
+
+- [ ] Figures and tables are successfully referenced with markdown syntax
+- [x] At least 2 in-text code references
+- [x] At least 1 in-text code reference includes in-text function
+- [x] R Markdown is used effectively to follow APA format (e.g., headings, emphasized text)
+- [x] YAML header is functional and complete
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Missing table reference. You do have all the required in-text code, but I really encourage you to use this even more! Replace literally every single number in your text with a code reference if you can!
+
+### BibTeX
+
+**Expectations:**
+
+- [x] At least 10 in-text citations using BibTeX reference syntax
+- [x] In-text citations are rendered without errors
+- [ ] In-text citations have no obvious problems (e.g., incorrect special characters)
+- [x] R and R packages are cited in-text using `cite_r()`
+- [x] References page renders without errors
+- [x] References page is APA formatted and free of obvious problems
+- [x] Additional expectations set in the report plan (if any) are met
+
+**Rating:**
+
+- [ ] No noteworthy issues 
+- [x] At least one minor problem
+- [ ] At least one major problem and/or multiple minor problems
+- [ ] Multiple major problems
+- [ ] Prohibitive errors or significant problems
+
+Problems with bibtex syntax when citing multiple works at once.
+
+## GitHub & best practices
+
+These expectations will not have an impact on your grade unless there are egregious issues, but I include them to give you feedback on what you can do if you use this workflow going forward.
+
+**Expectations:**
+
+- [ ] GitHub repo and contained files are sensibly and informatively named
+- [ ] GitHub repo is well-structured and tidy
+- [ ] GitHub README.md file is informative
+- [ ] Commit messages are informative
+- [x] Style is (relatively) consistent
+- [ ] Comments are frequent and informative
+- [ ] Code chunks have informative names, follow 1-chunk-1-thing rule, and are distributed throughout the text
+
+Be careful not to double-load packages! Load everything you need in the first chunk, not throughout the document. More importantly, name your chunks!!! Also, I suggest changing your chunk options to avoid printing output warnings (eg line 149)
+
+
+## Overall
+
+Really nice work, Songyang! There are a couple bits in here I think you can clean up still, but this came together really well overall. I do suggest that if you continue to use this workflow (or similar) in the future you invest some time into playing around with GitHub and getting more practice with general "best practices." Using informative comments, names, and commits makes a huge difference!
+
+# Grade
+
+- **Final report grade:** 14
+- **Class participation grade:** 19
+- **Weekly assignments:** 60
+- **TOTAL Final course grade:** 93 (A-)
